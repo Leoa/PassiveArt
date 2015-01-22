@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Passive Art Image</string>
+    <string name="hello_world">Start Passive Art</string>
+    <string name="action_settings">Settings</string>
+    <string name="view">View Passive Art</string>
+
+</resources>
