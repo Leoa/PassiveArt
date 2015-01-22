@@ -32,6 +32,8 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
 
             case R.id.continueBtn:
                 Intent i = new Intent(this,ShowArtActivity.class);
+                String x = "continue";
+                i.putExtra("continue", x);
                 startActivity(i);
 
                 break;
@@ -47,4 +49,6 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
         }
 
     }
+
+
 }
