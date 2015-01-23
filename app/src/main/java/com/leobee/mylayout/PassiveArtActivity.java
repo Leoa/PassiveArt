@@ -39,6 +39,7 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.quitBtn:
+                stopMethod(v);
                 Intent j = new Intent(this,MainActivity.class);
                 startActivity(j);
 // delete rows
@@ -49,6 +50,14 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
         }
 
     }
+
+    private void stopMethod(View v) {
+
+        Intent i = new Intent(this,DataService.class);
+        stopService(i);
+
+    }
+
 
 
 }

@@ -47,11 +47,19 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        startMethod(v);
         Intent i = new Intent(this,ShowArtActivity.class);
         startActivity(i);
 
 
+
+    }
+
+    public void startMethod(View v) {
+
+
+        Intent i = new Intent(this, DataService.class);
+        startService(i);
 
     }
 

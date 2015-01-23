@@ -18,8 +18,12 @@ public class ShowArtActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_show_art);
         btn =(Button)findViewById(R.id.button2);
         btn.setOnClickListener(this);
+// Start Accelerometer
+        //Start DB
+        //Start collecting data
 
 
+        //start service
     }
 
     @Override
@@ -30,6 +34,8 @@ public class ShowArtActivity extends Activity implements View.OnClickListener {
 
 
     }
+
+
 
 
 }
