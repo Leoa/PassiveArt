@@ -2,7 +2,9 @@ package com.leobee.mylayout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +14,7 @@ import android.widget.Button;
 public class PassiveArtActivity extends Activity implements View.OnClickListener {
 
     Button btn;
+    View layout;
     @Override
 
     public void onCreate(Bundle bundle){
@@ -24,8 +27,19 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
         Button two = (Button) findViewById(R.id.quitBtn);
         two.setOnClickListener(this);
 
-        //gradeint bg
-        //image
+        GradientDrawable gd = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[] {0xFF616261,0xFF165824});
+        gd.setCornerRadius(0f);
+        layout = findViewById(R.id.activity_passive_art);
+
+        int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            layout.setBackgroundDrawable(gd);
+        } else {
+            layout.setBackground(gd);
+        }
+
     }
     public void onClick(View v) {
         switch (v.getId()) {

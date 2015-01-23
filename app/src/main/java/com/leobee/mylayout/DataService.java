@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.ServiceConfigurationError;
 
 import thedatabase.DatabaseOperations;
+import utilities.RandomNumbers;
 import utilities.Timestamp;
 
 /**
@@ -45,7 +46,10 @@ public class DataService  extends Service implements SensorEventListener {
         senSensorManager.registerListener( this, senAccelerometer, SensorManager.SENSOR_DELAY_GAME);
 
         Toast.makeText(this, "on start command service", Toast.LENGTH_LONG).show();
+
         return super.onStartCommand(intent, flags, startId);
+
+
     }
 
     @Override
