@@ -72,6 +72,8 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
 
     }
 
-
+    public static int convert(int n) {
+        return Integer.valueOf(String.valueOf(n), 16);
+    }
 
 }
