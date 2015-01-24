@@ -21,6 +21,13 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
     View layout;
     Context ctx = this;
     DatabaseOperations DB = new DatabaseOperations(ctx);
+    double obtainedTotal=0;
+    double colorTotal=0;
+    float redPercentage;
+    float greenPercentage;
+    float bluePercentage;
+
+
     @Override
 
     public void onCreate(Bundle bundle){
@@ -44,22 +51,24 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
         int green = posUp + posDown;
         int blue = posFront + posBack;
 
-        long total = red+green+blue;
-        float percentRed = red/total;
-        int totalRed =(int)percentRed * 255;
+        obtainedTotal = red+green+blue;
+        redPercentage= (float)(red*100/obtainedTotal);
+        int totalRed =(int)(225 * (redPercentage /100.0f));
+        greenPercentage = (float)(green*100/obtainedTotal);
+        int totalGreen =(int)(225 * (greenPercentage /100.0f));
+        bluePercentage = (float)(blue*100/obtainedTotal);
+        int totalBlue =(int)(225 * (bluePercentage /100.0f));
 
-        float percentGreen = green/total;
-        int totalGreen =(int)percentGreen * 255;
 
-        float percentBlue = blue/total;
-        int totalBlue =(int)percentBlue * 255;
-
-        System.out.println( totalBlue + " "+totalGreen + " "+ totalRed);
-
+        System.out.println("obtainedTotal="+obtainedTotal);
+        System.out.println("Total red="+red);
+        System.out.println( "red precent "+redPercentage);
+        System.out.println( "red color precent "+totalRed);
+int total = 225;
 
         GradientDrawable gd = new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM,
-                new int[] {Color.rgb(totalRed, 0, 0),Color.rgb(0, totalGreen, 0), Color.rgb(0, 0, totalBlue)});
+                new int[] {Color.rgb(totalRed,total/2, total/2),Color.rgb(total/2, totalGreen, total/2), Color.rgb(total/2, total/2, totalBlue)});
         gd.setCornerRadius(0f);
         layout = findViewById(R.id.activity_passive_art);
 
@@ -87,6 +96,7 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
                 Intent j = new Intent(this,MainActivity.class);
                 startActivity(j);
 // delete rows
+                DB.deleteRows();
                 break;
 
             default:
