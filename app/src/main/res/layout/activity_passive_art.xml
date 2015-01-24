@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     android:id="@+id/activity_passive_art">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/sunset2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+
+        android:scaleType="fitXY"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
