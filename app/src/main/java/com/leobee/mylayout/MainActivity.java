@@ -20,6 +20,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         btn=(Button)findViewById(R.id.button);
         btn.setOnClickListener(this);
+
+
+      //  String data = getIntent().getExtra().getString("keyName","defaultKey");
     }
 
 

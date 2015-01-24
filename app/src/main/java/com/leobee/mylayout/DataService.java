@@ -56,6 +56,7 @@ public class DataService  extends Service implements SensorEventListener {
     public void onDestroy(){
 
         super.onDestroy();
+        senSensorManager.unregisterListener(this);
         Toast.makeText(this, " service Destroyed", Toast.LENGTH_LONG).show();
 
     }
@@ -95,6 +96,8 @@ public class DataService  extends Service implements SensorEventListener {
                     // do nothing
 
                 } else {
+
+                    //preff connector
                     if (xChange > 2) {
 
                         DB.putInfo(DB,"left", Timestamp.getCurrentTimeStamp());

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
@@ -26,6 +27,7 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
     float redPercentage;
     float greenPercentage;
     float bluePercentage;
+
 
 
     @Override
@@ -93,10 +95,14 @@ int total = 225;
 
             case R.id.quitBtn:
                 stopMethod(v);
-                Intent j = new Intent(this,MainActivity.class);
-                startActivity(j);
-// delete rows
+                // delete rows
                 DB.deleteRows();
+
+                Intent j = new Intent(this,MainActivity.class);
+
+                startActivity(j);
+
+
                 break;
 
             default:

@@ -324,7 +324,7 @@ public class DatabaseOperations  extends SQLiteOpenHelper{
 
     public void deleteRows(){
 
-     
+
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM "+ TableData.TableInfo.TABLE_NAME);
 
