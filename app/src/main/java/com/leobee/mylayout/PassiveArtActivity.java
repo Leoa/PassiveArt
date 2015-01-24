@@ -1,12 +1,16 @@
 package com.leobee.mylayout;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
+
+import thedatabase.DatabaseOperations;
 
 /**
  * Created by Leondria on 1/22/2015.
@@ -15,6 +19,8 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
 
     Button btn;
     View layout;
+    Context ctx = this;
+    DatabaseOperations DB = new DatabaseOperations(ctx);
     @Override
 
     public void onCreate(Bundle bundle){
@@ -27,9 +33,33 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
         Button two = (Button) findViewById(R.id.quitBtn);
         two.setOnClickListener(this);
 
+        int posLeft = DB.getSumLeft();
+        int posRight = DB.getSumRight();
+        int posUp = DB.getSumUp();
+        int posDown = DB.getSumDown();
+        int posFront = DB.getSumFront();
+        int posBack = DB.getSumBack();
+
+        int red = posLeft + posRight;
+        int green = posUp + posDown;
+        int blue = posFront + posBack;
+
+        long total = red+green+blue;
+        float percentRed = red/total;
+        int totalRed =(int)percentRed * 255;
+
+        float percentGreen = green/total;
+        int totalGreen =(int)percentGreen * 255;
+
+        float percentBlue = blue/total;
+        int totalBlue =(int)percentBlue * 255;
+
+        System.out.println( totalBlue + " "+totalGreen + " "+ totalRed);
+
+
         GradientDrawable gd = new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM,
-                new int[] {0xFF616261,0xFF165824});
+                new int[] {Color.rgb(totalRed, 0, 0),Color.rgb(0, totalGreen, 0), Color.rgb(0, 0, totalBlue)});
         gd.setCornerRadius(0f);
         layout = findViewById(R.id.activity_passive_art);
 
@@ -72,8 +102,6 @@ public class PassiveArtActivity extends Activity implements View.OnClickListener
 
     }
 
-    public static int convert(int n) {
-        return Integer.valueOf(String.valueOf(n), 16);
-    }
+
 
 }
