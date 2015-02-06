@@ -10,7 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-
+/**
+ * Created by Leondria on 12/27/2014.
+ * Program Description: This application collects the positions of the phone in a background service.
+ * Then the data is used to create a gradient background on a sunset image.
+ * The background gradient changes based on the data collected.
+ * Description of this activity: Start of application activity
+ */
 public class MainActivity extends Activity implements View.OnClickListener{
 
     Button btn;
@@ -20,11 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         btn=(Button)findViewById(R.id.button);
         btn.setOnClickListener(this);
-
-
-      //  String data = getIntent().getExtra().getString("keyName","defaultKey");
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,22 +52,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        //
         startMethod(v);
         Intent i = new Intent(this,ShowArtActivity.class);
         startActivity(i);
-
-
-
     }
 
     public void startMethod(View v) {
-
-
+        // start the service to collect data from the phone
         Intent i = new Intent(this, DataService.class);
         startService(i);
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -75,6 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
     public void backButtonHandler() {
+        // handle back button
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 MainActivity.this);
         // Setting Dialog Title

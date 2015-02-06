@@ -19,8 +19,8 @@
         android:id="@+id/button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:shadowColor="#00000000"
-        android:background="#ff3649ff"
-        android:textColor="#ffffffff" />
+        android:shadowColor="@color/black"
+        android:background="@color/blue"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

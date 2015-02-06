@@ -15,6 +15,7 @@ import android.widget.Button;
 
 /**
  * Created by Leondria on 1/22/2015.
+ * Description: Activity main page while DataService is running
  */
 public class ShowArtActivity extends Activity implements View.OnClickListener {
 
@@ -25,17 +26,11 @@ public class ShowArtActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_show_art);
         btn =(Button)findViewById(R.id.button2);
         btn.setOnClickListener(this);
-// Start Accelerometer
-        //Start DB
-        //Start collecting data
-
-
-        //start service
     }
 
     @Override
     public void onClick(View v) {
-
+    // Displays the art piece
         Intent i = new Intent(this,PassiveArtActivity.class);
         startActivity(i);
 

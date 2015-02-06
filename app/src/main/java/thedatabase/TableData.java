@@ -4,6 +4,7 @@ import android.provider.BaseColumns;
 
 /**
  * Created by Leondria on 12/8/2014.
+ * Description: Database table structure
  */
 public class TableData {
 
